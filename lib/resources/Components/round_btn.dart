@@ -22,7 +22,7 @@ class ButtonCustom extends StatelessWidget {
         ),
         height: 40,
         width: 200,
-        child:Center(child: Text(title, style: TextStyle(
+        child:Center(child: loading? CircularProgressIndicator(color: Colors.black,) :Text(title, style: TextStyle(
           color: Colors.black87,
           fontSize: 20
         ),)),

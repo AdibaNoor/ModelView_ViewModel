@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_app/resources/Components/round_btn.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
 import 'package:mvvm_app/utils/utils.dart';
+import 'package:mvvm_app/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -31,6 +33,8 @@ class _LoginViewState extends State<LoginView> {
   }
   @override
   Widget build(BuildContext context) {
+
+    final authviewmodel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       backgroundColor: Colors.amber,
       body: SafeArea(
@@ -73,6 +77,7 @@ class _LoginViewState extends State<LoginView> {
                 }),
             SizedBox(height: 20,),
             ButtonCustom(title: 'Login',
+                loading: authviewmodel.loading,
                 onPressed: (){
               if(_emailEditingController.text.isEmpty){
                 Utils.toastMessage("Please enter Email!");
@@ -81,7 +86,11 @@ class _LoginViewState extends State<LoginView> {
               }else if(_passwordEditingController.text.length<6){
                 Utils.toastMessage("Password needs to be more than 6 characters!");
               }else{
-
+                Map data ={
+                  'email' : _emailEditingController.text.toString(),
+                  'password': _passwordEditingController.text.toString()
+                };
+                authviewmodel.LoginApi(data , context);
               }
 
                 }),

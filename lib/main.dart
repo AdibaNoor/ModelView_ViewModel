@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:mvvm_app/utils/routes/route.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
 import 'package:mvvm_app/view/login_view.dart';
+import 'package:mvvm_app/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,11 +20,16 @@ class MyApp extends StatelessWidget {
         SystemUiOverlayStyle(
             systemNavigationBarColor: Colors.transparent,
             statusBarColor: Colors.transparent));
-    return MaterialApp(
-     debugShowCheckedModeBanner: false,
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_)=> AuthViewModel())
+
+        ],
+    child:  MaterialApp(
+      debugShowCheckedModeBanner: false,
       initialRoute: RouteNames.login,
       onGenerateRoute: Routes.generateRoute,
-    );
+    ),);
   }
 }
 
