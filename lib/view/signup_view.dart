@@ -76,7 +76,7 @@ class _SignUpViewState extends State<SignUpView> {
                   }),
               SizedBox(height: 20,),
               ButtonCustom(title: 'SignUp',
-                  loading: authviewmodel.loading,
+                  loading: authviewmodel.signupLoading,
                   onPressed: (){
                     if(_emailEditingController.text.isEmpty){
                       Utils.toastMessage("Please enter Email!");
@@ -89,7 +89,7 @@ class _SignUpViewState extends State<SignUpView> {
                         'email' : _emailEditingController.text.toString(),
                         'password': _passwordEditingController.text.toString()
                       };
-                      authviewmodel.LoginApi(data , context);
+                      authviewmodel.RegisterApi(data , context);
                     }
 
                   }),

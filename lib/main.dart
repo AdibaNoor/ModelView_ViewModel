@@ -4,6 +4,7 @@ import 'package:mvvm_app/utils/routes/route.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
 import 'package:mvvm_app/view/login_view.dart';
 import 'package:mvvm_app/view_model/auth_view_model.dart';
+import 'package:mvvm_app/view_model/user_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,12 +23,13 @@ class MyApp extends StatelessWidget {
             statusBarColor: Colors.transparent));
     return MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_)=> AuthViewModel())
+          ChangeNotifierProvider(create: (_)=> AuthViewModel()),
+          ChangeNotifierProvider(create: (_)=> UserViewModel()),
 
         ],
     child:  MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteNames.login,
+      initialRoute: RouteNames.splash,
       onGenerateRoute: Routes.generateRoute,
     ),);
   }

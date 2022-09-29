@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:mvvm_app/resources/Components/round_btn.dart';
 import 'package:mvvm_app/utils/routes/routes_names.dart';
@@ -87,8 +85,10 @@ class _LoginViewState extends State<LoginView> {
                 Utils.toastMessage("Password needs to be more than 6 characters!");
               }else{
                 Map data ={
-                  'email' : _emailEditingController.text.toString(),
-                  'password': _passwordEditingController.text.toString()
+                  // 'email' : _emailEditingController.text.toString(),
+                  // 'password': _passwordEditingController.text.toString()
+                  'email': 'eve.holt@reqres.in',
+                  'password': 'cityslicka'
                 };
                 authviewmodel.LoginApi(data , context);
               }
