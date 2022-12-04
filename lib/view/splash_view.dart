@@ -19,8 +19,9 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber,
       body: Center(
-          child: Text('Splash Screen')),
+          child: Text('Splash Screen', style: TextStyle(color: Colors.red, fontSize: 32 , fontWeight: FontWeight.bold),)),
     );
   }
 }

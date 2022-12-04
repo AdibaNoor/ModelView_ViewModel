@@ -15,17 +15,30 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final _userPreference = Provider.of<UserViewModel>(context);
     return Scaffold(
+      backgroundColor: Colors.amber,
+      appBar: AppBar(
+        elevation:0,
+        backgroundColor: Colors.amber,
+        title: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text('Home',style: TextStyle(color: Colors.red,fontSize: 18),),
+            SizedBox(width: 150,),
+            InkWell(
+                onTap: (){
+                  _userPreference.remove().then((value){
+                    Navigator.pushNamed(context, RouteNames.login);
+                  });
+                },
+                child: Text("Logout",style: TextStyle(color: Colors.red,fontSize: 10))),
+          ],
+        ),
 
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          InkWell(
-            onTap: (){
-              _userPreference.remove().then((value){
-                Navigator.pushNamed(context, RouteNames.login);
-              });
-            },
-              child: Text("Logout"))
+
         ],
       ),
     );
