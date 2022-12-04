@@ -22,15 +22,15 @@ class _HomeViewState extends State<HomeView> {
         title: Row(
           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text('Home',style: TextStyle(color: Colors.red,fontSize: 18),),
-            SizedBox(width: 150,),
+            Text('Home',style: TextStyle(color: Colors.red,fontSize: 20,fontWeight: FontWeight.bold),),
+            SizedBox(width: 170,),
             InkWell(
                 onTap: (){
                   _userPreference.remove().then((value){
                     Navigator.pushNamed(context, RouteNames.login);
                   });
                 },
-                child: Text("Logout",style: TextStyle(color: Colors.red,fontSize: 10))),
+                child: Text("Logout",style: TextStyle(color: Colors.red,fontSize: 15))),
           ],
         ),
 
